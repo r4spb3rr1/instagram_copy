@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ChatsView: View {
     let message : Message
+    @State private var showChat = false
+    
     var body: some View {
-        Button(action:{})
+        Button(action:{
+            
+        })
         {
             HStack(alignment: .top)
             {

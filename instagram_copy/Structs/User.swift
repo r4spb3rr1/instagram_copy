@@ -13,15 +13,20 @@ class User : Identifiable, Equatable, Codable
     let username : String
     let user_caption : String
     let password: String
+    let followingCount : Int
+    let followersCount: Int
+    
     var pfp: String {
         return "https://robohash.org/\(id)?size=200x200"
     }
     
-    init(id: Int, username: String, password: String, user_caption: String) {
+    init(id: Int, username: String, password: String, user_caption: String, followingCount: Int, followersCount: Int) {
         self.id = id
         self.username = username
         self.password = password
         self.user_caption = user_caption
+        self.followingCount = followingCount
+        self.followersCount = followersCount
     }
     static func == (lhs: User, rhs: User) -> Bool {
             lhs.id == rhs.id

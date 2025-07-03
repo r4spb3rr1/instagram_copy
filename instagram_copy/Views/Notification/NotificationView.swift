@@ -28,10 +28,15 @@ struct NotificationView: View {
                 Spacer()
                 Button(action:{})
                 {
-                    Image(notification.post.imageUrl)
-                        .resizable()
-                        .frame(width:48, height: 48)
-                        .cornerRadius(5)
+                    AsyncImage(url: URL(string: notification.post.imageUrl)){image in
+                        image
+                            .image?.resizable()
+                            .aspectRatio(contentMode: .fit)
+                        
+                    }
+                    .frame(width: 42)
+                    .shadow(radius: 3)
+                    
                 }
             }
             .padding(.horizontal)
@@ -44,4 +49,8 @@ struct NotificationView: View {
         
         
     }
+}
+
+#Preview {
+    NotificationView(notification: allNotifications[0])
 }

@@ -13,6 +13,7 @@ struct MessageView: View {
     @State var curUser: User
     @State private var text: String = ""
     
+    
     var body: some View {
         HStack {
             if curUser == message.recieverUser

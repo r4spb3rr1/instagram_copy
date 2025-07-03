@@ -7,9 +7,29 @@
 
 import SwiftUI
 
+func mergeMessages() -> [Message]
+{
+    var mergedusernames: Set<String> = []
+    var mergedMessages: [Message] = []
+    
+    for message in allMessages{
+        let medgedUsername = message.recieverUser.username + message.senderUser.username
+        let buffString = String(medgedUsername.sorted())
+        let inserted = mergedusernames.contains(buffString)
+        if !inserted
+        {
+            mergedusernames.insert(buffString)
+            mergedMessages.append(message)
+        }
+    }
+    return mergedMessages
+}
+
 struct MessagesView: View {
     
     @Binding var showMessages: Bool
+    
+    @State private var showMessage = false
     
     var body: some View {
         VStack()
@@ -45,13 +65,14 @@ struct MessagesView: View {
                     GridItem(.flexible(), spacing : 1, alignment: nil),
                 ]
                 
+                let mergedMessages = mergeMessages()
                 
                 LazyVGrid(
                     columns: columns,
                     alignment: .center,
                     spacing: 0,
                     content: {
-                        ForEach(allMessages) { message in
+                        ForEach(mergedMessages) { message in
                             Button(action:{})
                             {
                                 ChatsView(message: message)
@@ -66,3 +87,6 @@ struct MessagesView: View {
     }
 }
 
+//#Preview {
+//    MessagesView(showMessages: Bool))
+//}

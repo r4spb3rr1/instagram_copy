@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct Post : Identifiable
+struct Post : Identifiable, Codable
 {
     let id : Int
     let user : User
@@ -20,7 +20,7 @@ struct Post : Identifiable
     var imageUrl: String {
         return "https://dummyimage.com/400x400/\(number1)/\(number2)&text=Post+\(id+2000)"
     }
-
+    
     init(id: Int, user : User, caption : String, timestamp : String)
     {
         self.id = id

@@ -41,6 +41,8 @@
 		E0982F7E2E1554EB00595C7F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0982F7D2E1554EB00595C7F /* Comment.swift */; };
 		E0982F802E15583000595C7F /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0982F7F2E15583000595C7F /* MessageView.swift */; };
 		E0982F822E155A6F00595C7F /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0982F812E155A6F00595C7F /* ChatView.swift */; };
+		E0982F862E166B1600595C7F /* FindUserByID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0982F852E166B1600595C7F /* FindUserByID.swift */; };
+		E0982F882E1688E700595C7F /* JSONParceFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0982F872E1688E700595C7F /* JSONParceFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,8 @@
 		E0982F7D2E1554EB00595C7F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		E0982F7F2E15583000595C7F /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		E0982F812E155A6F00595C7F /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		E0982F852E166B1600595C7F /* FindUserByID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUserByID.swift; sourceTree = "<group>"; };
+		E0982F872E1688E700595C7F /* JSONParceFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParceFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				E0982F7B2E1541EE00595C7F /* AuthorizationFunc.swift */,
+				E0982F852E166B1600595C7F /* FindUserByID.swift */,
+				E0982F872E1688E700595C7F /* JSONParceFunctions.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				E050DC622E0BD831002AA802 /* MessagesView.swift in Sources */,
 				E050DC782E0BD923002AA802 /* NotificationsView.swift in Sources */,
 				E050DC692E0BD831002AA802 /* UserView.swift in Sources */,
+				E0982F862E166B1600595C7F /* FindUserByID.swift in Sources */,
 				E050DC6B2E0BD831002AA802 /* ShowProfileInfoView.swift in Sources */,
 				E050DC632E0BD831002AA802 /* HomeView.swift in Sources */,
 				E050DC652E0BD831002AA802 /* ProfileView.swift in Sources */,
@@ -331,6 +338,7 @@
 				E050DC7C2E0BDA5B002AA802 /* Notification.swift in Sources */,
 				E050DC642E0BD831002AA802 /* NewPostView.swift in Sources */,
 				E050DC602E0BD831002AA802 /* StoriesView.swift in Sources */,
+				E0982F882E1688E700595C7F /* JSONParceFunctions.swift in Sources */,
 				E050DC612E0BD831002AA802 /* ChatsView.swift in Sources */,
 				E050DC682E0BD831002AA802 /* TopNavigationView.swift in Sources */,
 				E0982F7E2E1554EB00595C7F /* Comment.swift in Sources */,

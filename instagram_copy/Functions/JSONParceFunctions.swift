@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+func getFileURL() -> URL {
+    let fileManager = FileManager.default
+    let docs = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+    return docs.appendingPathComponent("users.json")
+}
+
+

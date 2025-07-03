@@ -11,16 +11,6 @@ struct NotificationsView: View {
     
     @Binding var showNotification : Bool
     
-    let notifications : [Notification] = [
-        Notification(recieverUser: allUsers[0], senderUser: allUsers[1], post: allPosts[0]),
-        Notification(recieverUser: allUsers[0], senderUser: allUsers[2], post: allPosts[1]),
-        Notification(recieverUser: allUsers[0], senderUser: allUsers[3], post: allPosts[2]),
-        Notification(recieverUser: allUsers[0], senderUser: allUsers[4], post: allPosts[2]),
-        Notification(recieverUser: allUsers[0], senderUser: allUsers[1], post: allPosts[0]),
-        Notification(recieverUser: allUsers[0], senderUser: allUsers[0], post: allPosts[1]),
-        Notification(recieverUser: allUsers[0], senderUser: allUsers[4], post: allPosts[2])
-    ]
-    
     var body: some View {
         VStack()
         {
@@ -52,7 +42,7 @@ struct NotificationsView: View {
                     alignment: .center,
                     spacing: 0,
                     content: {
-                        ForEach(notifications) { notification in
+                        ForEach(allNotifications) { notification in
                             NotificationView(notification: notification)
                         }
                     })

@@ -8,16 +8,17 @@
 import Foundation
 import SwiftUICore
 
-var curUser: User = User(id: 1, username: "r4spb3rr1", password: "password1", user_caption: "21 y.o.")
 
 var allUsers : [User] = [
-    User(id: 1, username: "r4spb3rr1", password: "password1", user_caption: "21 y.o."),
-    User(id: 2, username: "codewizard", password: "password2", user_caption: "iOS dev"),
-    User(id: 3, username: "ghost", password: "password3", user_caption: "lurker"),
-    User(id: 4, username: "numberone", password: "password4", user_caption: "oneoneone"),
-    User(id: 5, username: "thebest", password: "password5", user_caption: "betterthanyou"),
-    User(id: 6, username: "s1mple", password: "password6", user_caption: "iamhere"),
+    User(id: 1, username: "r4spb3rr1", password: "password1", user_caption: "21 y.o.", followingCount: 100, followersCount: 101),
+    User(id: 2, username: "codewizard", password: "password2", user_caption: "iOS dev", followingCount: 2100, followersCount: 23),
+    User(id: 3, username: "ghost", password: "password3", user_caption: "lurker", followingCount: 200, followersCount: 222),
+    User(id: 4, username: "numberone", password: "password4", user_caption: "oneoneone", followingCount: 300, followersCount: 333),
+    User(id: 5, username: "thebest", password: "password5", user_caption: "betterthanyou", followingCount: 400, followersCount: 444),
+    User(id: 6, username: "s1mple", password: "password6", user_caption: "iamhere", followingCount: 111, followersCount: 9999),
 ]
+
+var curUser = allUsers[0]
 
 var allPosts : [Post] = [
     Post(id: 1, user: allUsers[0], caption: "love nature<3", timestamp: "2025.06.13"),
@@ -51,6 +52,17 @@ var allMessages : [Message] = [
     Message(senderUser: allUsers[3], recieverUser: allUsers[0], timestamp: "0", messageText: "comoestas"),
     Message(senderUser: allUsers[4], recieverUser: allUsers[0], timestamp: "0", messageText: "wiwiwi")
 ]
+
+let allNotifications : [Notification] = [
+    Notification(recieverUser: allUsers[0], senderUser: allUsers[1], post: allPosts[0]),
+    Notification(recieverUser: allUsers[0], senderUser: allUsers[2], post: allPosts[1]),
+    Notification(recieverUser: allUsers[0], senderUser: allUsers[3], post: allPosts[2]),
+    Notification(recieverUser: allUsers[0], senderUser: allUsers[4], post: allPosts[2]),
+    Notification(recieverUser: allUsers[0], senderUser: allUsers[1], post: allPosts[0]),
+    Notification(recieverUser: allUsers[0], senderUser: allUsers[0], post: allPosts[1]),
+    Notification(recieverUser: allUsers[0], senderUser: allUsers[4], post: allPosts[2])
+]
+
 //
 //
 //class UserStore: ObservableObject {
@@ -78,30 +90,31 @@ var allMessages : [Message] = [
 //    }
 //}
 //
-//class PostStore: ObservableObject {
-//    static let shared = PostStore()
-//
-//    @Published var allPosts: [Post] = []
-//
-//    func fetchPosts() {
-//        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
-//
-//        URLSession.shared.dataTask(with: url) { data, _, error in
-//            if let data = data {
-//                do {
-//                    let decodedPosts = try JSONDecoder().decode([Post].self, from: data)
-//                    DispatchQueue.main.async {
-//                        self.allPosts = decodedPosts
-//                    }
-//                } catch {
-//                    print("Decoding error:", error)
-//                }
-//            } else if let error = error {
-//                print("Network error:", error)
-//            }
-//        }.resume()
-//    }
-//}
+class PostStore: ObservableObject {
+    static let shared = PostStore()
+
+    @Published var allPosts: [Post] = []
+
+    func fetchPosts() {
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
+
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let data = data {
+                do {
+                    let decodedPosts = try JSONDecoder().decode([Post].self, from: data)
+                    DispatchQueue.main.async {
+                        self.allPosts = decodedPosts
+                    }
+                } catch {
+                    print("Decoding error:", error)
+                }
+            } else if let error = error {
+                print("Network error:", error)
+            }
+        }.resume()
+    }
+    
+}
 
 
 

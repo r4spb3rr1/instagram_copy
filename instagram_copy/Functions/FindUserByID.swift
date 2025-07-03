@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+func findUserById() -> User?
+{
+    
+    return nil
+}

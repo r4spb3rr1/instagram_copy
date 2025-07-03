@@ -56,13 +56,13 @@ struct ShowProfileInfoView: View {
                 Spacer()
                 VStack()
                 {
-                    Text("150")
+                    Text(String(user.followersCount))
                     Text("followers")
                 }
                 Spacer()
                 VStack()
                 {
-                    Text("151")
+                    Text(String(user.followingCount))
                     Text("following")
                 }
                 .padding(.trailing, 20)
