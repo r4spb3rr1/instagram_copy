@@ -12,23 +12,18 @@ struct ChatsView: View {
     @State private var showChat = false
     
     var body: some View {
-        Button(action:{
-            
-        })
+        HStack(alignment: .top)
         {
-            HStack(alignment: .top)
+            UserView(user: message.senderUser).frame(width: 64, height: 64)
+            VStack(alignment: .leading)
             {
-                UserView(user: message.senderUser).frame(width: 64, height: 64)
-                VStack(alignment: .leading)
-                {
-                    Text(message.senderUser.username).fontWeight(.bold).font(.system(size: 24))
+                Text(message.senderUser.username).fontWeight(.bold).font(.system(size: 24))
                     
-                    Text(message.messageText).font(.system(size: 18)).foregroundColor(.gray)
-                }
-                Spacer()
+                Text(message.messageText).font(.system(size: 18)).foregroundColor(.gray)
             }
-            .padding(.leading, 10)
+            Spacer()
         }
+        .padding(.leading, 10)
         .foregroundColor(.black)
         .padding(.vertical, 5)
         .overlay(

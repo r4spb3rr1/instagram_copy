@@ -49,8 +49,13 @@ var allMessages : [Message] = [
     Message(senderUser: allUsers[1], recieverUser: allUsers[0], timestamp: "0", messageText: "asd!"),
     Message(senderUser: allUsers[0], recieverUser: allUsers[1], timestamp: "0", messageText: "dsa!"),
     Message(senderUser: allUsers[2], recieverUser: allUsers[0], timestamp: "0", messageText: "some message"),
+    Message(senderUser: allUsers[0], recieverUser: allUsers[2], timestamp: "0", messageText: "some"),
+    Message(senderUser: allUsers[2], recieverUser: allUsers[0], timestamp: "0", messageText: "message"),
     Message(senderUser: allUsers[3], recieverUser: allUsers[0], timestamp: "0", messageText: "comoestas"),
-    Message(senderUser: allUsers[4], recieverUser: allUsers[0], timestamp: "0", messageText: "wiwiwi")
+    Message(senderUser: allUsers[0], recieverUser: allUsers[3], timestamp: "0", messageText: "hola"),
+    Message(senderUser: allUsers[4], recieverUser: allUsers[0], timestamp: "0", messageText: "wiwiwi"),
+    Message(senderUser: allUsers[4], recieverUser: allUsers[0], timestamp: "0", messageText: "iii"),
+    Message(senderUser: allUsers[0], recieverUser: allUsers[4], timestamp: "0", messageText: "neeeee")
 ]
 
 let allNotifications : [Notification] = [

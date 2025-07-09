@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Comment : Codable{
+struct Comment : Codable {
     var id : Int
     var senderUser: User
     var recieverUser: User

@@ -8,8 +8,7 @@
 import SwiftUI
 
 
-struct Notification : Identifiable
-{
+struct Notification : Identifiable {
     let id = UUID()
     let recieverUser : User
     let senderUser : User

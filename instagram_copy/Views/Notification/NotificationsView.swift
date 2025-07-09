@@ -30,8 +30,7 @@ struct NotificationsView: View {
             }
             .foregroundColor(.black)
             
-            ScrollView()
-            {
+            ScrollView() {
                 let columns : [GridItem] = [
                     GridItem(.flexible(), spacing : 1, alignment: nil),
                 ]
