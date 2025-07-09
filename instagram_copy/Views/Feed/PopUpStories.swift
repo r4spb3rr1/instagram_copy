@@ -10,7 +10,9 @@ import SwiftUI
 struct PopUpStories: View {
     
 //    var currentUser: User
-    var currentUser : User = allUsers[0]
+    var currentUser : User
+    @Binding var showStory: Bool
+    
     var body: some View {
         ZStack(alignment: .topLeading)
         {
@@ -26,6 +28,15 @@ struct PopUpStories: View {
                 .clipped()
             
             HStack(){
+                Button(action: {
+                    withAnimation {
+                        showStory = false
+                    }
+                })
+                {
+                    Image(systemName: "arrow.left").resizable().frame(width: 24, height: 24)
+                }
+                .padding(.leading, 15)
                 UserView(user: currentUser)
                     .frame(width: 56, height: 56)
                     .padding(10)
@@ -39,6 +50,4 @@ struct PopUpStories: View {
     }
 }
 
-#Preview {
-    PopUpStories()
-}
+

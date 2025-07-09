@@ -9,33 +9,65 @@ import SwiftUI
 
 
 
+// StoriesView.swift
+
 struct StoriesView : View {
     
     @State var showStories: Bool = false
     @State var curUser: User? = nil
 
-    let users : [User] = allUsers
+    let users: [User] = allUsers
 
     var body: some View {
         ZStack {
-            ScrollView(.horizontal) {
-                HStack {
-                    ForEach(users) { user in
-                        Button(action: {
-                            curUser = user
-                        }) {
-                            UserViewForStories(user: user)
+            if !showStories {
+                VStack {
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(users) { user in
+                                Button(action: {
+                                    curUser = user
+                                    withAnimation {
+                                        showStories = true
+                                    }
+                                }) {
+                                    UserViewForStories(user: user)
+                                }
+                            }
                         }
+                        .frame(height: 100)
                     }
                 }
-                .frame(height: 100)
+                .transition(.move(edge: .top))
+            }
+
+            if showStories {
+                if let unwrappedUser = curUser {
+                    PopUpStories(currentUser: unwrappedUser, showStory: $showStories)
+                        .transition(.move(edge: .bottom))
+                        .zIndex(1)
+                } else {
+                    HStack {
+                        Button(action: {
+                            withAnimation {
+                                showStories = false
+                            }
+                        }) {
+                            Image(systemName: "arrow.left")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                        }
+                        .padding(.leading, 15)
+                        Text("Loading...")
+                    }
+                    .foregroundColor(.black)
+                }
             }
         }
-        .fullScreenCover(item: $curUser) { user in
-            PopUpStories(currentUser: user)
-        }
+        .animation(.easeInOut, value: showStories)
     }
 }
+
 
 #Preview
 {
